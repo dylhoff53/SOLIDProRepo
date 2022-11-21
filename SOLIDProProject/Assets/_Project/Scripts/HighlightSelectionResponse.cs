@@ -1,6 +1,6 @@
 using UnityEngine;
 
-internal class HighlightSelectionResponse : MonoBehaviour
+internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
 {
     [SerializeField] public Material highlightMaterial;
     [SerializeField] public Material defaultMaterial;
