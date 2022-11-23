@@ -3,11 +3,13 @@ using UnityEngine;
 internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
 {
     [SerializeField] public Material highlightMaterial;
-    [SerializeField] public Material defaultMaterial;
+    [SerializeField] private Material orginialMaterial;
+
 
     public void OnSelect(Transform selection)
     {
         var selectionRenderer = selection.GetComponent<Renderer>();
+        orginialMaterial = selectionRenderer.material;
         if (selectionRenderer != null)
         {
             selectionRenderer.material = this.highlightMaterial;
@@ -19,7 +21,7 @@ internal class HighlightSelectionResponse : MonoBehaviour, ISelectionResponse
         var selectionRenderer = selection.GetComponent<Renderer>();
         if (selectionRenderer != null)
         {
-            selectionRenderer.material = this.defaultMaterial;
+            selectionRenderer.material = this.orginialMaterial;
         }
     }
 }
